@@ -17,7 +17,7 @@ public class HelloRessources {
     @GET
     @Path("/hi")
     @Produces(MediaType.TEXT_PLAIN)   // The response will be returned as plain text
-    public Response sayHello() {
+    public Response sayHello() {// response because web service
         // Build an HTTP 200 (OK) response with the message "Hello World!"
         return Response
                 .status(200)                  // HTTP status code 200 = success
@@ -29,12 +29,12 @@ public class HelloRessources {
     // Example: /hello/Ahmed -> will return "Hello Ahmed!"
     @GET
     @Path("/{name}")                          // {name} is a dynamic variable in the URL
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_PLAIN)// produces c'est la representation // bch youslou inpout esmou consumes
     public Response sayHelloT(@PathParam(value = "name") String name) {
         // Build a personalized response message using the provided name
         return Response
                 .status(200)
-                .entity("Hello " + name + "!") // Insert the name from the URL into the response
+                .entity("Hello " + name + "!") // Insert the name from the URL into the response bch tafichi
                 .build();
     }
 }

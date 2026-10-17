@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class UniteEnseignementBusiness {
+public class UniteEnseignementBusiness extends UniteEnseignement {
     private static List<UniteEnseignement> unitesEnseignement;
 
     public UniteEnseignementBusiness() {
@@ -27,7 +27,7 @@ public class UniteEnseignementBusiness {
         return null;
     }
 
-    public boolean addUniteEnseignement(UniteEnseignement ue) {
+    public boolean addUniteEnseignement(UniteEnseignementBusiness ue) {
         return unitesEnseignement.add(ue);
     }
 
