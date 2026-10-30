@@ -13,7 +13,7 @@ import java.security.Key;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
-
+import entities.Credentials;
 /*
  *
  * Si vous avez besoin d’obtenir des informations sur le contexte d’exécution de la requête,
@@ -63,11 +63,18 @@ public class AuthenticationEndPoint {
         }
     }
 
-    private void authenticate(String username, String password) {
+    //private void authenticate(String username, String password) {
         // Authenticate against a database, LDAP, file or whatever
         // Throw an Exception if the credentials are invalid
-        System.out.println("Authenticating user...");
+        //System.out.println("Authenticating user...");
 
+    //}
+    private void authenticate(String username, String password) {
+        System.out.println("Authenticating user...");
+        if (username == null || password == null
+                || !(username.equals("Mariem") && password.equals("mariem"))) {
+            throw new SecurityException("Identifiants invalides");
+        }
     }
 
     private String issueToken(String username) {
@@ -90,6 +97,7 @@ public class AuthenticationEndPoint {
                 .setIssuedAt(new Date())
                 .setExpiration(toDate(LocalDateTime.now().plusMinutes(15L)))
                 .signWith(SignatureAlgorithm.HS512, key)
+                //.signWith(SignatureAlgorithm.HS512, JwtKey.get())
                 .compact();
 
         System.out.println("the returned token is : " + jwtToken);

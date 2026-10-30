@@ -23,6 +23,7 @@ public class UniteEnsWS {
     }
     @Path("/add")
     @POST
+    @Secured
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public Response addUE(UniteEnseignement ue){
